@@ -1,29 +1,29 @@
 
-
-number= ((1000 + RANDOM % 9999))
-i=2 
-  
-
-f=0 
-  
-
-while test $i -le `expr $number / 2`  
-do
-  
-
-
-if test `expr $number % $i` -eq 0  
+#! /bin/bash
+a=$(( 1000+RANDOM%9999 ))
+b=$(( a/2 ))
+# -lt is less than operator 
+echo $b  
+ 
+while(($b>1))
+do 
+if(( $a%$b == 0 ))
 then
-f=1 
+    # Print the values 
+    echo "$a is not prime number"
+echo $b
+break
+else
+
+b=$((b-1))
+#echo $b
 fi
 
-
-
-i=`expr $i + 1` 
+#sif((  )) 
+   # increment the value 
+    #a=`expr $a - 1` 
 done
-if test $f -eq 1  
+if(($b==1))
 then
-echo "Not Prime"
-else
-echo "Prime"
+echo "$a is prime"
 fi
